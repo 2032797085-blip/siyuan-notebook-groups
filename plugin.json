@@ -1,7 +1,7 @@
 {
   "name": "siyuan-notebook-groups",
-  "author": "Vanessa",
-  "url": "",
+"author": "2032797085-blip",
+"url": "https://github.com/2032797085-blip/siyuan-notebook-groups",
   "version": "0.1.0",
   "minAppVersion": "3.8.5",
   "kernels": [
@@ -24,14 +24,9 @@
     "docker",
     "all"
   ],
-  "frontends": [
-    "desktop",
-    "mobile",
-    "browser-desktop",
-    "browser-mobile",
-    "desktop-window",
-    "all"
-  ],
+"frontends": [
+  "desktop"
+],
   "disabledInPublish": false,
   "publish": {
     "resources": [],
@@ -45,10 +40,10 @@
   "default": "Organize and manage SiYuan notebooks in groups.",
   "zh-CN": "集中管理思源笔记本，支持分组查看与快速切换。"
   },
-  "readme": {
-    "default": "README.md",
-    "zh-CN": "README.zh-CN.md"
-  },
+"readme": {
+  "default": "README.en.md",
+  "zh-CN": "README.md"
+},
   "icon": "icon.png",
   "preview": "preview.png",
   "funding": {
