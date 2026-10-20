@@ -1,6 +1,6 @@
 # SiYuan Notebook Groups
 
-[简体中文](./README.zh-CN.md)
+[简体中文](./README.md)
 
 **Group notebooks directly in SiYuan's existing document tree.** Organize independent notebooks into collapsible, folder-like groups without merging notebooks or moving their documents.
 
