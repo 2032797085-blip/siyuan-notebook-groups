@@ -1,0 +1,67 @@
+{
+  "name": "siyuan-notebook-groups",
+  "author": "Vanessa",
+  "url": "",
+  "version": "0.1.0",
+  "minAppVersion": "3.8.5",
+  "kernels": [
+    "windows",
+    "linux",
+    "darwin",
+    "ios",
+    "android",
+    "harmony",
+    "docker",
+    "all"
+  ],
+  "backends": [
+    "windows",
+    "linux",
+    "darwin",
+    "ios",
+    "android",
+    "harmony",
+    "docker",
+    "all"
+  ],
+  "frontends": [
+    "desktop",
+    "mobile",
+    "browser-desktop",
+    "browser-mobile",
+    "desktop-window",
+    "all"
+  ],
+  "disabledInPublish": false,
+  "publish": {
+    "resources": [],
+    "data": ["readonlyText"]
+  },
+  "displayName": {
+  "default": "Notebook Groups",
+  "zh-CN": "笔记本分组管理"
+  },
+  "description": {
+  "default": "Organize and manage SiYuan notebooks in groups.",
+  "zh-CN": "集中管理思源笔记本，支持分组查看与快速切换。"
+  },
+  "readme": {
+    "default": "README.md",
+    "zh-CN": "README.zh-CN.md"
+  },
+  "icon": "icon.png",
+  "preview": "preview.png",
+  "funding": {
+    "openCollective": "",
+    "patreon": "",
+    "github": "",
+    "custom": [
+      "https://ld246.com/sponsor"
+    ]
+  },
+  "keywords": [
+  "思源笔记",
+  "笔记本管理",
+  "笔记本分组"
+  ]
+}
