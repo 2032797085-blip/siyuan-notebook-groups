@@ -1,22 +1,213 @@
-.plugin-sample {
-  &__custom-tab {
-    background-color: var(--b3-theme-background);
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+/* Notebook Groups UI: only plugin-owned elements are styled. */
+/* 整行拖动：分组标题及笔记本原生根行，不插入额外手柄。 */
+.notebook-groups-heading-draggable,
+.notebook-groups-row-draggable {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
-  &__custom-dock {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.notebook-groups-heading-draggable:active,
+.notebook-groups-row-draggable:active {
+  cursor: pointer;
+}
+.notebook-groups-plus {
+  border: 0;
+  background: transparent;
+  color: var(--b3-theme-on-surface);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  flex: none;
+  border-radius: 4px;
+}
+.notebook-groups-plus:hover { background: var(--b3-list-hover); }
+.notebook-groups-drag-badge {
+  position: fixed;
+  z-index: 99999;
+  pointer-events: none;
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: var(--b3-theme-primary);
+  color: var(--b3-theme-on-primary);
+  box-shadow: 0 2px 8px #0003;
+  font-size: 12px;
+}
+.notebook-groups-mobile-panel {
+  max-height: min(76dvh, 720px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 12px 14px calc(14px + env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
+}
+.notebook-groups-mobile-create { margin-bottom: 10px; }
+.notebook-groups-mobile-section {
+  padding: 6px 0 10px;
+  border-bottom: 1px solid var(--b3-border-color);
+}
+.notebook-groups-mobile-heading,
+.notebook-groups-mobile-book-row,
+.notebook-groups-mobile-doc-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+}
+.notebook-groups-mobile-heading .b3-button { min-width: 30px; }
+.notebook-groups-mobile-title {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.notebook-groups-mobile-book-row { padding-left: 14px; }
+.notebook-groups-mobile-book-name,
+.notebook-groups-mobile-doc-row button {
+  border: 0;
+  background: transparent;
+  color: var(--b3-theme-on-background);
+  text-align: left;
+  font: inherit;
+  padding: 8px 2px;
+  min-width: 0;
+  cursor: pointer;
+}
+.notebook-groups-mobile-book-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-  &__time {
-    background: var(--b3-card-info-background);
-    border-radius: 4px;
-    padding: 2px 8px;
+.notebook-groups-mobile-docs { padding-left: 14px; }
+.notebook-groups-mobile-doc-row .notebook-groups-mobile-doc-open { flex: 1; }
+.notebook-groups-mobile-doc-row .notebook-groups-mobile-doc-toggle { flex: none; }
+.notebook-groups-mobile-empty { padding-left: 14px; opacity: .7; }
+
+/* 触屏目标尽量达到 44px，缩窄 iPhone 上的按钮和下拉菜单布局。 */
+.notebook-groups-mobile-panel button,
+.notebook-groups-mobile-panel select {
+  min-height: 44px;
+  touch-action: manipulation;
+}
+.notebook-groups-mobile-panel [hidden] { display: none !important; }
+.notebook-groups-mobile-panel .notebook-groups-mobile-heading { gap: 4px; }
+.notebook-groups-mobile-panel .notebook-groups-mobile-heading > .b3-button:not(.notebook-groups-mobile-title) {
+  padding: 6px 9px !important;
+  flex: none;
+}
+.notebook-groups-mobile-panel .notebook-groups-mobile-docs { padding-left: 12px; }
+.notebook-groups-mobile-panel .notebook-groups-mobile-doc-toggle {
+  min-width: 36px;
+  text-align: center;
+}
+.notebook-groups-mobile-panel .notebook-groups-mobile-doc-open {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.notebook-groups-mobile-panel .notebook-groups-mobile-book-row { gap: 6px; }
+
+@media (max-width: 420px) {
+  .notebook-groups-mobile-panel { padding: 8px 8px calc(12px + env(safe-area-inset-bottom, 0px)); }
+  .notebook-groups-mobile-panel .notebook-groups-mobile-book-row { padding-left: 4px; }
+  .notebook-groups-mobile-panel .notebook-groups-mobile-heading > .b3-button:not(.notebook-groups-mobile-title) {
+    padding: 6px !important;
+    min-width: 36px;
   }
+}
+
+/* v0.2.2: 手机端采用统一管理入口与拖动手柄；不再在笔记本行显示分组下拉框。 */
+.notebook-groups-mobile-toolbar { display:flex; align-items:center; justify-content:space-between; gap:8px; padding:0 0 10px; }
+.notebook-groups-mobile-toolbar strong {font-size:15px;}
+.notebook-groups-mobile-plus {flex:none;min-width:42px;}
+.notebook-groups-mobile-book-row {padding-left:12px;}
+.notebook-groups-mobile-book-name {overflow-wrap:anywhere;}
+.notebook-groups-mobile-help {color:var(--b3-theme-on-surface);opacity:.75;font-size:12px;padding:10px 2px;}
+.notebook-groups-mobile-drag-badge {
+  position:fixed; z-index:999999; pointer-events:none;
+  padding:8px 12px; border-radius:7px;
+  color:var(--b3-theme-on-primary); background:var(--b3-theme-primary);
+  box-shadow:0 3px 12px #0005; font-size:13px;
+}
+.notebook-groups-manager .b3-select {min-width:100px;max-width:42%;}
+.notebook-groups-manager .b3-button {min-height:36px;}
+@media (max-width:420px) {
+  .notebook-groups-mobile-book-row {padding-left:0;}
+  .notebook-groups-manager .b3-button {padding:5px 7px;}
+}
+
+/* v0.2.3: 移动端直接装饰思源自带的文档树，不创建另一套文档列表。 */
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-bar {
+  flex: none; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:6px; padding:6px 10px; border-bottom:1px solid var(--b3-border-color);
+  font-size:13px; background:var(--b3-theme-background);
+}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-bar > .b3-button {min-height:32px;}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-heading {
+  display:flex; align-items:center; flex:0 0 100%; box-sizing:border-box;
+  min-height:40px; width:100%; gap:4px; border-radius:5px;
+  border-bottom:1px solid var(--b3-border-color); color:var(--b3-theme-on-background);
+}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-title {
+  display:block; flex:1; min-width:0; border:0; background:transparent;
+  color:inherit; font:inherit; font-weight:600; text-align:left; padding:8px 3px;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-plus {
+  flex:none; width:38px; height:38px; background:transparent; border:0;
+  color:var(--b3-theme-on-surface); font-size:23px;
+}
+/* 长按整行时支持触屏操作；短按、滚动由思源原生列表处理。 */
+#sidebar [data-type="sidebar-file"] li[data-type="navigation-root"],
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-heading {
+  -webkit-user-select:none;
+  user-select: none;  
+  -webkit-touch-callout:none;
+}
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-leading > li[data-type="navigation-root"] {
+  align-content:center; justify-content:flex-start; min-height:40px;
+}
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-leading > li[data-type="navigation-root"] > .notebook-groups-native-heading {
+  order:-1;
+}
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-collapsed > li[data-type="navigation-root"] > :not(.notebook-groups-native-heading),
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-collapsed > li[data-type="navigation-root"] ~ * {display:none!important;}
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-collapsed:not(.notebook-groups-native-leading) {display:none!important;}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-empty-list {
+  display:flex; flex-direction:column; width:100%; gap:0;
+}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-empty-heading {min-height:36px;}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-empty-heading .notebook-groups-native-title {font-weight:500;}
+
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-footer {
+  flex:none; padding:2px 10px; border-top:1px solid var(--b3-border-color);
+}
+
+/* 测试 G：空分组与普通分组复用相同标题样式。 */
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-footer {
+  padding: 0;
+  border-top: 0;
+  background: var(--b3-theme-background);
+}
+#sidebar [data-type="sidebar-file"] .notebook-groups-native-footer > .notebook-groups-native-heading {
+  padding: 0 10px;
+  min-height: 40px;
+  border-radius: 0;
+}
+
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-leading > li[data-type="navigation-root"] {
+  row-gap: 0 !important;
+}
+
+/* 测试 I：隔离思源原生笔记本选中态的背景。
+ * 分组标题位于该组第一个原生根 li 内；当 li 获得焦点时，
+ * 原生背景会连同标题一起变灰。给标题绘制不透明背景，
+ * 只遮住标题区域，不修改 li 的焦点状态或事件处理。 */
+#sidebar [data-type="sidebar-file"] ul.notebook-groups-native-leading
+  > li[data-type="navigation-root"] > .notebook-groups-native-heading {
+  background-color: var(--b3-theme-background) !important;
+  position: relative;
+  z-index: 1;
 }

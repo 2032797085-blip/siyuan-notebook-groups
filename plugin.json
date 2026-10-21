@@ -1,42 +1,46 @@
 {
   "name": "siyuan-notebook-groups",
-"author": "2032797085-blip",
-"url": "https://github.com/2032797085-blip/siyuan-notebook-groups",
-  "version": "0.1.1",
+  "author": "2032797085-blip",
+  "url": "https://github.com/2032797085-blip/siyuan-notebook-groups",
+  "version": "0.2.0",
   "minAppVersion": "3.8.5",
-  "kernels": ["all"],
-  "backends": ["all"],
-"frontends": [
-  "desktop"
+"kernels": ["all"],
+"backends": [
+  "all"
 ],
+  "frontends": [
+    "desktop",
+    "mobile",
+    "browser-mobile"
+  ],
   "disabledInPublish": false,
   "publish": {
-  "resources": [],
-  "data": []
-},
+    "resources": [],
+    "data": []
+  },
   "displayName": {
-  "default": "Notebook Groups",
-  "zh-CN": "笔记本分组管理"
+    "default": "Notebook Groups",
+    "zh-CN": "笔记本分组管理"
   },
   "description": {
-  "default": "Organize and manage SiYuan notebooks in groups.",
-  "zh-CN": "集中管理思源笔记本，支持分组查看与快速切换。"
+    "default": "Group and reorder SiYuan notebooks directly in the native desktop and mobile document tree.",
+    "zh-CN": "在思源桌面与移动端原生文档树中为笔记本分组，支持拖拽排序和快速新建笔记本。"
   },
-"readme": {
-  "default": "README.en.md",
-  "zh-CN": "README.md"
-},
+  "readme": {
+    "default": "README.en.md",
+    "zh-CN": "README.md"
+  },
   "icon": "icon.png",
   "preview": "preview.png",
   "funding": {
-  "openCollective": "",
-  "patreon": "",
-  "github": "",
-  "custom": []
-},
+    "openCollective": "",
+    "patreon": "",
+    "github": "",
+    "custom": []
+  },
   "keywords": [
-  "思源笔记",
-  "笔记本管理",
-  "笔记本分组"
+    "思源笔记",
+    "笔记本管理",
+    "笔记本分组"
   ]
 }

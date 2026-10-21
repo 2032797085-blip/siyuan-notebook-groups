@@ -45,7 +45,7 @@ Contributions are welcome! Please open an issue for bugs or suggestions, and sub
 
 ## Compatibility and limitations
 
-This plugin modifies SiYuan's existing file-tree **DOM** rather than using an official notebook-grouping API. Future SiYuan updates may change that structure and require plugin updates. The current feature has been tested during development in the Windows desktop interface; compatibility with other operating systems, mobile interfaces, and future versions is not yet verified.
+This plugin modifies SiYuan's existing file-tree **DOM** rather than using an official notebook-grouping API. Future SiYuan updates may change that structure and require plugin updates. The current feature has been tested during development in the Windows desktop interface; compatibility with other operating systems and future versions is not yet verified. Mobile displays groups in the native file tree without moving notebook DOM nodes. Android/iOS device verification is still pending.
 
 ## License
 
@@ -54,3 +54,13 @@ MIT. This project was started from the [official SiYuan plugin sample](https://g
 ## Repository
 
 https://github.com/2032797085-blip/siyuan-notebook-groups
+
+
+## v0.2.0 native mobile tree preview
+
+- Mobile groups are displayed **inside SiYuan's native Documents tree**, not a separate dialog.
+- One **Manage Groups** button handles group management and manual notebook classification.
+- Group titles and drag grips decorate native notebook rows. The notebook DOM parent-child structure is preserved.
+- Long-press grips to move groups or notebooks. Group order and notebook assignment are saved by the plugin.
+- Empty groups appear near the tree header; the empty Ungrouped target appears at the bottom.
+- Actual Android and iOS verification is still pending. Do not publish this build to the marketplace before testing.

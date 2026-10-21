@@ -1,22 +1,20 @@
 {
-  "name": "plugin-sample",
-  "version": "0.5.2",
-  "description": "This is a sample plugin for SiYuan (https://b3log.org/siyuan)",
-  "main": ".src/index.js",
+  "name": "siyuan-notebook-groups",
+  "version": "0.2.0",
+  "description": "SiYuan notebook grouping and sorting plugin",
+  "main": "index.js",
   "scripts": {
     "format": "dprint fmt",
     "format:check": "dprint check",
     "lint": "eslint . --fix --cache",
     "test": "node --test tests/*.test.mjs",
-    "dev": "run-p dev:kernel dev:app",
+    "dev": "npm run dev:app",
     "dev:app": "webpack --config webpack.config.js --mode development",
-    "dev:kernel": "webpack --config webpack.kernel.config.js --mode development",
-    "build": "run-s build:kernel build:app",
-    "build:app": "webpack --config webpack.config.js --mode production",
-    "build:kernel": "webpack --config webpack.kernel.config.js --mode production"
+    "build": "npm run build:app",
+    "build:app": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
-  "author": "Vanessa",
+  "author": "2032797085-blip",
   "license": "MIT",
   "packageManager": "pnpm@11.4.0",
   "engines": {
