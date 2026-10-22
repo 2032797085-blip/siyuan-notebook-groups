@@ -2,7 +2,7 @@
   "name": "siyuan-notebook-groups",
   "author": "2032797085-blip",
   "url": "https://github.com/2032797085-blip/siyuan-notebook-groups",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "minAppVersion": "3.8.5",
 "kernels": ["all"],
 "backends": [
